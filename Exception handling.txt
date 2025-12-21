@@ -1,0 +1,83 @@
+//Name = Gauree Manoj Dikkatwar.
+//Class = SY-CSe-A
+//Roll No. = 137
+
+
+public class ExceptionDemo {
+
+    public static void main(String[] args) {
+        
+        System.out.println("--- Scenario 1: NullPointerException Demo ---");
+        String text = null; 
+        try {
+            System.out.println("Attempting to get length of a null string...");
+            System.out.println("String length is: " + text.length()); 
+            
+        } catch (NullPointerException e) {
+            System.out.println("Caught an exception!");
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("The variable was null. Cannot call methods on it.");
+            
+        } 
+        
+        System.out.println("Program continues after NullPointerException catch block.");
+
+        
+        System.out.println("\n--- Scenario 2: ArithmeticException Demo ---");
+        int numerator = 10;
+        int denominator = 0;
+
+        try {
+            System.out.println("Attempting division (10 / 0)...");
+            int result = numerator / denominator;
+            System.out.println("Result is: " + result);             
+        } catch (ArithmeticException e) {
+           
+            System.out.println("Caught an exception!");
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Division by zero is not allowed.");
+            
+        } finally {
+           block always executes, regardless of success or fail // The finally ure
+            System.out.println("--- FINALLY Block executed (Scenario 2) ---");
+            System.out.println("Cleanup tasks or closing resources would go here.");
+        }
+        
+        System.out.println("Program continues after ArithmeticException and finally blocks.");
+        System.out.println("\n--- Scenario 3: No Exception Demo ---");
+        
+        try {
+            int result = 10 / 2;
+            System.out.println("Successful division (10 / 2). Result: " + result); 
+            
+        } catch (Exception e) {
+             System.out.println("This message will NOT be printed.");
+            
+        } finally {
+             System.out.println("--- FINALLY Block executed (Scenario 3) ---");
+        }
+    }
+}
+
+
+
+//OUTPUT
+--- Scenario 1: NullPointerException Demo ---
+Attempting to get length of a null string...
+Caught an exception!
+Error: Cannot invoke "String.length()" because "text" is null
+The variable was null. Cannot call methods on it.
+Program continues after NullPointerException catch block.
+
+--- Scenario 2: ArithmeticException Demo ---
+Attempting division (10 / 0)...
+Caught an exception!
+Error: / by zero
+Division by zero is not allowed.
+--- FINALLY Block executed (Scenario 2) ---
+Cleanup tasks or closing resources would go here.
+Program continues after ArithmeticException and finally blocks.
+
+--- Scenario 3: No Exception Demo ---
+Successful division (10 / 2). Result: 5
+--- FINALLY Block executed (Scenario 3) ---

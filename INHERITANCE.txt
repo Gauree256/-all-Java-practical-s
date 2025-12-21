@@ -1,0 +1,62 @@
+//Name = Gauree Manoj Dikkatwar.
+//Class = SY-CSe-A
+//Roll No. = 137
+
+
+class Animal {
+    String food;
+
+    Animal(String food) {
+        this.food = food;
+        System.out.println("Animal object created.");
+    }
+
+        void eat() {
+        System.out.println("The animal eats " + food + ".");
+    }
+
+    void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+class Dog extends Animal {
+    String breed;
+
+        Dog(String food, String breed) {
+        super(food); // Must be the first statement in the constructor
+        this.breed = breed;
+        System.out.println("Dog object created.");
+    }
+
+    void bark() {
+        System.out.println("The " + breed + " barks: Woof! Woof!");
+    }
+
+        void sleep() {
+        System.out.println("The dog is curled up and napping.");
+    }
+}
+
+public class TestInheritance {
+    public static void main(String[] args) {
+        Dog myDog = new Dog("dog food", "Golden Retriever");
+
+        System.out.println("--- Dog Actions ---");
+
+        myDog.eat();
+
+        myDog.sleep();
+
+        myDog.bark();
+    }
+}
+
+
+//OUTPUT
+Animal object created.
+Dog object created.
+--- Dog Actions ---
+The animal eats dog food.
+The dog is curled up and napping.
+The Golden Retriever barks: Woof! Woof!

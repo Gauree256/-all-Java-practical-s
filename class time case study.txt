@@ -1,0 +1,73 @@
+//Name = Gauree Manoj Dikkatwar.
+//Class = SY-CSe-A
+//Roll No. = 137
+
+class Time {
+    int hours;
+    int minutes;
+    int seconds;
+
+    // Method to set time
+    void setTime(int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+        normalize();
+    }
+
+    // Method to normalize time
+    void normalize() {
+        if (seconds >= 60) {
+            minutes = minutes + (seconds / 60);
+            seconds = seconds % 60;
+        }
+
+        if (minutes >= 60) {
+            hours = hours + (minutes / 60);
+            minutes = minutes % 60;
+        }
+    }
+
+    // Method to add two time objects
+    Time addTime(Time t) {
+        Time temp = new Time();
+        temp.hours = this.hours + t.hours;
+        temp.minutes = this.minutes + t.minutes;
+        temp.seconds = this.seconds + t.seconds;
+        temp.normalize();
+        return temp;
+    }
+
+    // Method to display time
+    void displayTime() {
+        System.out.println(hours + " : " + minutes + " : " + seconds);
+    }
+}
+
+public class TimeDemo {
+    public static void main(String[] args) {
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+
+        t1.setTime(2, 45, 50);
+        t2.setTime(1, 30, 40);
+
+        System.out.print("Time 1: ");
+        t1.displayTime();
+
+        System.out.print("Time 2: ");
+        t2.displayTime();
+
+        Time t3 = t1.addTime(t2);
+
+        System.out.print("Added Time: ");
+        t3.displayTime();
+    }
+}
+
+
+//OUTPUT
+Time 1: 2 : 45 : 50
+Time 2: 1 : 30 : 40
+Added Time: 4 : 16 : 30
